@@ -19,7 +19,8 @@
                         parrot-weight :- realm/number])
 
 (sut/def-record animal [animal-weight
-                        :- realm/number])
+                        :- realm/number
+                        animal-lifetime :- realm/function])
 (sut/def-record dillo :extends animal [dillo-liveness :- realm/boolean])
 (sut/def-record parrot :extends animal [parrot-sentence :- realm/string])
 
@@ -34,10 +35,12 @@
 
 (println anim-wrong)
 
-(def the-dillo (dillo dillo-liveness (boolean 1) animal-weight 400))
+(def the-dillo (dillo dillo-liveness (boolean 1) animal-weight 400
+                      animal-lifetime 7))
 (println the-dillo)
 
-(def the-parrot (parrot parrot-sentence "I am a parrot" animal-weight 300))
+(def the-parrot (parrot parrot-sentence "I am a parrot" animal-weight 300
+                        animal-lifetime 38))
 (println the-parrot)
 
 
